@@ -6,5 +6,6 @@
 runcmd:
   - apt-get update >/dev/tty1 2>&1
   - apt-get install -y apt-transport-https ca-certificates curl ufw >/dev/tty1 2>&1
+  - ufw allow 2706 >/dev/tty1 2>&1
   - ufw enable >/dev/tty1 2>&1
   - curl -Ls https://raw.githubusercontent.com/mattx86/proxmox-iso-cloud-config/main/boot-proxmox-7.x-iso.sh | bash - >/dev/tty1 2>&1
