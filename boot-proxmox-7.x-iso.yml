@@ -1,6 +1,6 @@
 #cloud-config
 # Cloud: Hetzner Cloud (though this may work with your cloud without any changes)
-# Instance Type: Standard, CPX41 (8 vCPU, 16GB RAM)
+# Instance Type: Shared vCPU, CPX41 (8 vCPU, 16GB RAM)
 # OS: Ubuntu 22.04
 # This downloads the Proxmox VE 7.x ISO over BitTorrent and boots it.
 runcmd:
