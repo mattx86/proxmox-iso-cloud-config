@@ -74,4 +74,7 @@ EOF
 # Update grub and reboot into the ISO LiveCD.
 update-grub
 grub-reboot "Install Proxmox VE"
+
+# Wait for a moment before rebooting, so the user can briefly review what just happened.
+sleep 5
 reboot
