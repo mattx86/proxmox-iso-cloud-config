@@ -13,7 +13,7 @@ apt-get install -y curl ctorrent xorriso
 # Download the ISO over BitTorrent
 torrent_url=$(curl -Ls https://www.proxmox.com/en/downloads | grep "Download ${proxmox_version}.torrent" | egrep -o 'href="[^"]+"' | head -n1 | sed -re 's;href=";https://www.proxmox.com;' -e 's/&amp;/\&/g' -e 's;"$;;' -e 's;args\[0\];args[];')
 curl -Ls "$torrent_url" -o /root/${proxmox_version}.torrent
-cd /root && ctorrent -e 0 /root/${proxmox_version}.torrent
+cd /root && ctorrent -e 0 -p 2706 /root/${proxmox_version}.torrent </dev/null
 
 # Check the sha256sum.
 sha256sum /root/${proxmox_version}.iso 2>&1 | grep $proxmox_iso_sha256sum >/dev/null 2>&1
