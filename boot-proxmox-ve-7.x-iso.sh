@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Copyright (c) 2023 Matt Smith
+# MIT License
+#
 
 # Proxmox version to download and the ISO's sha256sum for verification.
 proxmox_version="proxmox-ve_7.4-1"
@@ -6,9 +10,6 @@ proxmox_iso_sha256sum="55b672c4b0d2bdcbff9910eea43df3b269aaab3f23e7a1df18b82d92e
 
 # Set the graphical installer's screen resolution.
 installer_screen_resolution="800x600"
-
-# Install some tools.
-apt-get install -y curl ctorrent xorriso
 
 # Download the ISO over BitTorrent
 torrent_url=$(curl -Ls https://www.proxmox.com/en/downloads | grep "Download ${proxmox_version}.torrent" | egrep -o 'href="[^"]+"' | head -n1 | sed -re 's;href=";https://www.proxmox.com;' -e 's/&amp;/\&/g' -e 's;"$;;' -e 's;args\[0\];args[];')
