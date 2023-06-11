@@ -11,8 +11,7 @@
 # This downloads the Proxmox VE 7.x ISO over BitTorrent and boots it.
 #
 runcmd:
-  - apt-get update >/dev/tty1 2>&1
-  - apt-get install -y apt-transport-https ca-certificates curl ctorrent xorriso ufw >/dev/tty1 2>&1
+  - apt-get update >/dev/tty1 2>&1 && apt-get install -y apt-transport-https ca-certificates curl ctorrent xorriso ufw >/dev/tty1 2>&1
   - ufw allow 2706 >/dev/tty1 2>&1
   - ufw enable >/dev/tty1 2>&1
   - curl -Ls https://raw.githubusercontent.com/mattx86/proxmox-ve-cloud-config/main/boot-proxmox-ve-7.x-iso.sh | bash - >/dev/tty1 2>&1
